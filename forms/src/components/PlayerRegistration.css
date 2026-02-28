@@ -1,120 +1,182 @@
 .player-registration-container {
   display: flex;
-  justify-content: flex-end;
-  padding: 2rem;
+  justify-content: center;
+  padding: 2rem 1rem;
+  width: 100%;
 }
 
 .player-registration-form {
-  width: 100%;
-  max-width: 500px;
+  width: min(760px, 100%);
+  background: #f8fbff;
+  border: 1px solid #e4edf8;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15, 40, 80, 0.08);
+  padding: 1.6rem 1.4rem;
 }
 
-form {
+.player-registration-form .registor_form {
+  margin: 0 0 1.4rem;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #1f324f;
+}
+
+.player-registration-form form {
   display: flex;
   flex-direction: column;
+  gap: 0.95rem;
 }
 
-.form-group-radio {
+.player-registration-form form > div {
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
   gap: 0.5rem;
-  flex-wrap: nowrap;
+  margin-bottom: 0;
+}
+
+.player-registration-form form > div:has(.form-group-radio) {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  align-items: start;
+  gap: 0.9rem;
+}
+
+.player-registration-form form > div:has(.form-group-radio) > label {
+  display: block;
+  padding-top: 0.45rem;
+}
+
+.player-registration-form label {
+  color: #40536d;
+  font-weight: 600;
+}
+
+.player-registration-form label:has(> input[type="text"]),
+.player-registration-form label:has(> input[type="email"]),
+.player-registration-form label:has(> input[type="number"]),
+.player-registration-form label:has(> input[type="date"]),
+.player-registration-form label:has(> select) {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+}
+
+.player-registration-form input[type="text"],
+.player-registration-form input[type="email"],
+.player-registration-form input[type="number"],
+.player-registration-form input[type="date"],
+.player-registration-form select {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #d2deed;
+  border-radius: 10px;
+  padding: 0 0.8rem;
+  font-size: 0.98rem;
+  background: #ffffff;
+  color: #1f2f46;
+  box-sizing: border-box;
+}
+
+.player-registration-form input[type="text"]:focus,
+.player-registration-form input[type="email"]:focus,
+.player-registration-form input[type="number"]:focus,
+.player-registration-form input[type="date"]:focus,
+.player-registration-form select:focus {
+  outline: none;
+  border-color: #7ca6f3;
+  box-shadow: 0 0 0 3px rgba(77, 132, 230, 0.16);
+}
+
+.player-registration-form .form-group-radio {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
   align-items: center;
 }
 
-.form-group-radio label {
-  display: flex;
+.player-registration-form .form-group-radio label {
+  display: inline-flex;
   align-items: center;
-  min-width: auto;
-  margin-bottom: 0;
+  gap: 0.4rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid #d9e4f3;
+  border-radius: 10px;
+  background: #ffffff;
+  font-weight: 500;
   white-space: nowrap;
 }
 
-.registor_form {
-  margin-top: 0;
-}
-
-.player-details-container {
-  background-color: #f5f5f5;
-  padding: 1rem;
-  border-radius: 4px;
-  margin-top: 1.5rem;
-}
-
-.player-details-container p {
-  margin: 0.5rem 0;
-}
-
-form div {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-label {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  gap: 0.5rem;
-  min-width: auto;
-}
-
-label:has(> input[type="text"]),
-label:has(> input[type="email"]),
-label:has(> input[type="number"]),
-label:has(> input[type="date"]),
-label:has(> select) {
-  min-width: 150px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="date"],
-select {
-  flex: 1;
-  min-width: 200px;
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  margin-right: 0.5rem;
+.player-registration-form input[type="radio"],
+.player-registration-form input[type="checkbox"] {
+  margin: 0;
   cursor: pointer;
 }
 
-legend {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  padding: 0;
+.player-registration-form form > div:last-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  flex-wrap: wrap;
 }
 
-button {
-  padding: 0.75rem 1.5rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  background-color: #4CAF50;
-  color: white;
+.player-registration-form button {
+  padding: 0.68rem 1.2rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  align-self: flex-start;
+  font-size: 0.96rem;
+  font-weight: 600;
+  transition: filter 0.2s ease;
 }
 
-button:hover {
-  background-color: #45a049;
+.player-registration-form button:hover {
+  filter: brightness(1.04);
 }
 
-button[type="reset"] {
-  background-color: #f44336;
+.player-registration-form button[type="submit"] {
+  background: #4d84e6;
+  color: #ffffff;
 }
 
-button[type="reset"]:hover {
-  background-color: #da190b;
+.player-registration-form button[type="reset"] {
+  background: #ef6d6d;
+  color: #ffffff;
+}
+
+.player-registration-form button[type="button"] {
+  background: #dbe5f3;
+  color: #2e4461;
+}
+
+@media (max-width: 720px) {
+  .player-registration-form {
+    padding: 1.2rem 1rem;
+  }
+
+  .player-registration-form .registor_form {
+    font-size: 1.5rem;
+  }
+
+  .player-registration-form label:has(> input[type="text"]),
+  .player-registration-form label:has(> input[type="email"]),
+  .player-registration-form label:has(> input[type="number"]),
+  .player-registration-form label:has(> input[type="date"]),
+  .player-registration-form label:has(> select) {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .player-registration-form form > div:has(.form-group-radio) {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .player-registration-form form > div:has(.form-group-radio) > label {
+    padding-top: 0;
+  }
 }

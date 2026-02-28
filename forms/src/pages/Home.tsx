@@ -1,6 +1,6 @@
 import { SearchBar } from "../components/SearchBar";
 import { PlayerList } from "../components/PlayerList";
-import { FormInput } from "../types/FormInput";
+import type { FormInput } from "../types/FormInput";
 
 interface HomeProps {
   players: FormInput[];

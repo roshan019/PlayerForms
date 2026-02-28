@@ -1,54 +1,50 @@
 import { useState } from "react";
+import type { FormInput } from "../types/FormInput";
 import "./PlayerRegistration.css";
 
-interface FormInput {
-  fullname?: string;
-  email?: string;
-  PhoneNo?: string;
-  address?: string;
-  DateOfBirth?: string;
-  age?: string;
-  gender?: string;
-  JerseyNo?: string;
-  height?: string;
-  role?: string;
-  test?: boolean;
-  odi?: boolean;
-  t20?: boolean;
-}
+const initialInput: FormInput = {
+  fullname: "",
+  email: "",
+  PhoneNo: "",
+  address: "",
+  DateOfBirth: "",
+  age: "",
+  gender: "",
+  JerseyNo: "",
+  height: "",
+  role: "",
+  test: false,
+  odi: false,
+  t20: false,
+};
 
 interface PlayerRegistrationProps {
-  onPlayerRegistered?: (playerData: FormInput) => void;
+  initialPlayer?: FormInput;
+  title?: string;
+  submitLabel?: string;
+  onPlayerRegistered: (playerData: FormInput) => void;
+  onCancel?: () => void;
 }
 
-export function PlayerRegistration({ onPlayerRegistered }: PlayerRegistrationProps) {
-  const [input, setInput] = useState<FormInput>({});
-  const [submittedData, setSubmittedData] = useState<FormInput | null>(null);
+export function PlayerRegistration({ onPlayerRegistered, onCancel }: PlayerRegistrationProps) {
+  const [input, setInput] = useState<FormInput>(initialInput);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const name = e.target.name;
-    const value = (e.target as HTMLInputElement).type === "checkbox" 
-      ? (e.target as HTMLInputElement).checked 
+    const value = (e.target as HTMLInputElement).type === "checkbox"
+      ? (e.target as HTMLInputElement).checked
       : e.target.value;
     setInput((values) => ({ ...values, [name]: value }));
   };
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmittedData(input); // save only on submit
-    if (onPlayerRegistered) {
-      onPlayerRegistered(input); // Call the callback to add player to list
-      // Clear the form after successful registration
-      setTimeout(() => {
-        setInput({});
-        setSubmittedData(null);
-      }, 1000);
-    }
+    onPlayerRegistered(input);
+    setInput(initialInput);
   }
 
   function handleReset() {
-    setInput({});
-    setSubmittedData(null); // also hide output
+    setInput(initialInput);
   }
 
   return (
@@ -64,7 +60,7 @@ export function PlayerRegistration({ onPlayerRegistered }: PlayerRegistrationPro
             <input
               type="text"
               name="fullname"
-              value={input.fullname}
+              value={input.fullname || ""}
               onChange={handleChange}
               required
             />
@@ -76,7 +72,7 @@ export function PlayerRegistration({ onPlayerRegistered }: PlayerRegistrationPro
             <input
               type="text"
               name="email"
-              value={input.email}
+              value={input.email || ""}
               onChange={handleChange}
               required
             />
@@ -111,7 +107,7 @@ export function PlayerRegistration({ onPlayerRegistered }: PlayerRegistrationPro
             <input
               type="date"
               name="DateOfBirth"
-              value={input.DateOfBirth}
+              value={input.DateOfBirth || ""}
               onChange={handleChange}
             />
           </label>
@@ -122,7 +118,7 @@ export function PlayerRegistration({ onPlayerRegistered }: PlayerRegistrationPro
             <input
               type="number"
               name="age"
-              value={input.age}
+              value={input.age || ""}
               onChange={handleChange}
             />
           </label>
@@ -160,7 +156,7 @@ export function PlayerRegistration({ onPlayerRegistered }: PlayerRegistrationPro
             <input
               type="number"
               name="JerseyNo"
-              value={input.JerseyNo}
+              value={input.JerseyNo || ""}
               onChange={handleChange}
             />
           </label>
@@ -171,7 +167,7 @@ export function PlayerRegistration({ onPlayerRegistered }: PlayerRegistrationPro
             <input
               type="number"
               name="height"
-              value={input.height}
+              value={input.height || ""}
               onChange={handleChange}
             />
           </label>
@@ -220,7 +216,7 @@ export function PlayerRegistration({ onPlayerRegistered }: PlayerRegistrationPro
               <input
                 type="checkbox"
                 name="test"
-                checked={input.test}
+                checked={input.test || false}
                 onChange={handleChange}
               />
             </label>
@@ -229,7 +225,7 @@ export function PlayerRegistration({ onPlayerRegistered }: PlayerRegistrationPro
               <input
                 type="checkbox"
                 name = "odi"
-                checked={input.odi}
+                checked={input.odi || false}
                 onChange={handleChange}
               />
             </label>
@@ -238,7 +234,7 @@ export function PlayerRegistration({ onPlayerRegistered }: PlayerRegistrationPro
               <input
                 type="checkbox"
                 name = "t20"
-                checked={input.t20}
+                checked={input.t20 || false}
                 onChange={handleChange}
               />
             </label>
@@ -246,31 +242,14 @@ export function PlayerRegistration({ onPlayerRegistered }: PlayerRegistrationPro
         </div>
 
         <div style={{ marginTop: "1.5rem" }}>
-          <button type="submit">Submit</button>
+          <button type="submit">Save</button>
           <button type="reset" onClick={handleReset}>
             Reset
           </button>
-        </div>
-
-        <br />
-        <br />
-        <div className="player-details-container">
-          {submittedData && (
-            <>
-              <h4>Player Details</h4>
-              <p>Full Name: {submittedData.fullname}</p>
-              <p>Email: {submittedData.email}</p>
-              <p>Phone No.: {submittedData.PhoneNo}</p>
-              <p>Address: {submittedData.address}</p>
-              <p>Date of Birth: {submittedData.DateOfBirth}</p>
-              <p>Age: {submittedData.age}</p>
-              <p>Gender: {submittedData.gender}</p>
-              <p>Jersey No.: {submittedData.JerseyNo}</p>
-              <p>Height: {submittedData.height}</p>
-              <p>Role: {submittedData.role}</p>
-              <p>Format: {submittedData.test && 'test'} {submittedData.odi && 'odi'} {submittedData.t20 && 't20'}</p>
-          
-            </>
+          {onCancel && (
+            <button type="button" onClick={onCancel}>
+              Cancel
+            </button>
           )}
         </div>
       </form>

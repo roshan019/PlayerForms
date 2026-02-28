@@ -1,68 +1,100 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #e6e6e6;
+  color: #2d2d2d;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+body.theme-light {
+  background-color: #e6e6e6;
+  color: #2d2d2d;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+body.theme-dark {
+  background-color: #5e5e5e;
+  color: #f1f1f1;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+body.theme-dark .search-bar {
+  background-color: #666666;
+  border-bottom-color: #7a7a7a;
+}
+
+body.theme-dark .search-input {
+  background-color: #4c4c4c;
+  color: #f5f5f5;
+  border-color: #777777;
+}
+
+body.theme-dark .search-input::placeholder {
+  color: #c8c8c8;
+}
+
+body.theme-dark .player-list-container {
+  background-color: #666666;
+}
+
+body.theme-dark .players-table-wrapper,
+body.theme-dark .no-players {
+  background-color: #595959;
+}
+
+body.theme-dark .players-table td {
+  color: #f0f0f0;
+  border-bottom-color: #747474;
+}
+
+body.theme-dark .players-table tbody tr:hover {
+  background-color: #6d6d6d;
+}
+
+body.theme-dark .players-table tbody tr:nth-child(even) {
+  background-color: #616161;
+}
+
+body.theme-dark .add-player-page {
+  background: linear-gradient(115deg, #696969 0%, #5e5e5e 45%, #545454 100%);
+}
+
+body.theme-dark .player-registration-form {
+  background: #5b5b5b;
+  border-color: #787878;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+body.theme-dark .player-registration-form .registor_form,
+body.theme-dark .player-registration-form label {
+  color: #f0f0f0;
+}
+
+body.theme-dark .player-registration-form input[type="text"],
+body.theme-dark .player-registration-form input[type="email"],
+body.theme-dark .player-registration-form input[type="number"],
+body.theme-dark .player-registration-form input[type="date"],
+body.theme-dark .player-registration-form select {
+  background: #4e4e4e;
+  color: #f3f3f3;
+  border-color: #777777;
+}
+
+body.theme-dark .player-registration-form .form-group-radio label {
+  background: #666666;
+  color: #f1f1f1;
+  border-color: #808080;
 }
