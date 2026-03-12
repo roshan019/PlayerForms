@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import type { FormInput } from "../types/FormInput";
 
 const STORAGE_KEY = "players_data";
@@ -88,13 +88,14 @@ export function usePlayerManager() {
   const [editingPlayerIndex, setEditingPlayerIndex] = useState<number | null>(null);
   const [deletingPlayerIndex, setDeletingPlayerIndex] = useState<number | null>(null);
 
-  const filteredPlayers = players.filter((player) => {
+  const filteredPlayers = useMemo(() => {
     const searchLower = searchTerm.toLowerCase();
-    return (
-      (player.fullname?.toLowerCase().includes(searchLower) || false) ||
-      (player.email?.toLowerCase().includes(searchLower) || false)
+    return players.filter(
+      (player) =>
+        (player.fullname?.toLowerCase().includes(searchLower) || false) ||
+        (player.email?.toLowerCase().includes(searchLower) || false)
     );
-  });
+  }, [players, searchTerm]);
 
   // Save players to localStorage whenever they change
   useEffect(() => {

@@ -1,6 +1,6 @@
 import "./PlayerList.css";
 import type { FormInput } from "../types/FormInput";
-import { useState, useEffect } from "react";
+import { useState, memo } from "react";
 
 interface PlayerListProps {
   players: FormInput[];
@@ -8,25 +8,27 @@ interface PlayerListProps {
   onDelete?: (index: number) => void;
 }
 
-export function PlayerList({ players, onEdit, onDelete }: PlayerListProps) {
+const getFormatDisplay = (player: FormInput): string => {
+  const formats: string[] = [];
+  if (player.test) formats.push("Test");
+  if (player.odi) formats.push("ODI");
+  if (player.t20) formats.push("T20");
+  return formats.length > 0 ? formats.join(", ") : "-";
+};
+
+export const PlayerList = memo(function PlayerList({ players, onEdit, onDelete }: PlayerListProps) {
   const [currentPage, setCurrentPage] = useState(1);
+  const [prevPlayers, setPrevPlayers] = useState(players);
   const itemsPerPage = 10;
 
-  useEffect(() => {
+  if (players !== prevPlayers) {
+    setPrevPlayers(players);
     setCurrentPage(1);
-  }, [players]);
+  }
 
   const totalPages = Math.ceil(players.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentPlayers = players.slice(startIndex, startIndex + itemsPerPage);
-
-  const getFormatDisplay = (player: FormInput) => {
-    const formats: string[] = [];
-    if (player.test) formats.push("Test");
-    if (player.odi) formats.push("ODI");
-    if (player.t20) formats.push("T20");
-    return formats.length > 0 ? formats.join(", ") : "-";
-  };
 
   if (players.length === 0) {
     return (
@@ -61,8 +63,9 @@ export function PlayerList({ players, onEdit, onDelete }: PlayerListProps) {
           <tbody>
             {currentPlayers.map((player, index) => {
               const absoluteIndex = startIndex + index;
+              const playerKey = `${player.email ?? ""}|${player.fullname ?? ""}`;
               return (
-                <tr key={absoluteIndex}>
+                <tr key={playerKey}>
                   <td>{player.fullname}</td>
                   <td>{player.email}</td>
                   <td>{player.PhoneNo}</td>
@@ -117,4 +120,4 @@ export function PlayerList({ players, onEdit, onDelete }: PlayerListProps) {
       )}
     </div>
   );
-}
+});
