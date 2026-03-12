@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Header } from "./components/Header";
 import { Home } from "./pages/Home";
 import { AddPlayer } from "./pages/AddPlayer";
@@ -34,6 +34,20 @@ function App() {
   const isEditing = editingPlayerIndex !== null;
   const editingPlayer = editingPlayerIndex !== null ? players[editingPlayerIndex] : null;
 
+  const handleAddPlayerClick = useCallback(() => {
+    setEditingPlayerIndex(null);
+    setShowAddPlayer(true);
+  }, [setEditingPlayerIndex, setShowAddPlayer]);
+
+  const handleHomeClick = useCallback(() => {
+    setShowAddPlayer(false);
+    setEditingPlayerIndex(null);
+  }, [setShowAddPlayer, setEditingPlayerIndex]);
+
+  const handleThemeToggle = useCallback(() => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  }, []);
+
   useEffect(() => {
     document.body.classList.remove("theme-light", "theme-dark");
     document.body.classList.add(theme === "dark" ? "theme-dark" : "theme-light");
@@ -43,18 +57,10 @@ function App() {
   return (
     <>
       <Header
-        onAddPlayerClick={() => {
-          setEditingPlayerIndex(null);
-          setShowAddPlayer(true);
-        }}
-        onHomeClick={() => {
-          setShowAddPlayer(false);
-          setEditingPlayerIndex(null);
-        }}
+        onAddPlayerClick={handleAddPlayerClick}
+        onHomeClick={handleHomeClick}
         theme={theme}
-        onThemeToggle={() =>
-          setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"))
-        }
+        onThemeToggle={handleThemeToggle}
       />
 
       {showAddPlayer ? (

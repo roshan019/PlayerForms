@@ -1,4 +1,5 @@
 import "./Header.css";
+import { memo } from "react";
 
 interface HeaderProps {
   onAddPlayerClick: () => void;
@@ -7,7 +8,7 @@ interface HeaderProps {
   onThemeToggle: () => void;
 }
 
-export function Header({
+export const Header = memo(function Header({
   onAddPlayerClick,
   onHomeClick,
   theme,
@@ -49,4 +50,4 @@ export function Header({
       </div>
     </header>
   );
-}
+});

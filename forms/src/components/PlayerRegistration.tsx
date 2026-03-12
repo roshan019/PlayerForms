@@ -26,8 +26,8 @@ interface PlayerRegistrationProps {
   onCancel?: () => void;
 }
 
-export function PlayerRegistration({ onPlayerRegistered, onCancel }: PlayerRegistrationProps) {
-  const [input, setInput] = useState<FormInput>(initialInput);
+export function PlayerRegistration({ initialPlayer, onPlayerRegistered, onCancel }: PlayerRegistrationProps) {
+  const [input, setInput] = useState<FormInput>(initialPlayer ?? initialInput);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const name = e.target.name;
