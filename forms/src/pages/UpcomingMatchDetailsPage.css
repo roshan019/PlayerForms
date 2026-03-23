@@ -1,0 +1,344 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap");
+
+.upcoming-detail-page {
+  min-height: 100vh;
+  padding: 1.25rem;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.85), transparent 34%),
+    linear-gradient(180deg, #edf3ef 0%, #d6e4da 100%);
+  font-family: "Barlow", "Segoe UI", sans-serif;
+  color: #17261b;
+}
+
+.match-detail-shell {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.match-detail-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.match-detail-back {
+  color: #14392a;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.match-detail-back:hover,
+.match-detail-back:focus-visible {
+  text-decoration: underline;
+}
+
+.match-detail-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.match-detail-pill {
+  border: 1px solid #b7c9bd;
+  background: rgba(255, 255, 255, 0.8);
+  color: #355343;
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.match-detail-pill.strong {
+  background: #1b5f45;
+  border-color: #1b5f45;
+  color: #ffffff;
+}
+
+.match-sheet {
+  border: 1px solid #bacfc3;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fdfefe 0%, #eff5f1 100%);
+  box-shadow: 0 22px 44px rgba(22, 48, 31, 0.12);
+  padding: 1rem;
+}
+
+.match-sheet-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: stretch;
+}
+
+.team-poster,
+.date-poster,
+.location-panel-card,
+.squad-card,
+.match-key-card {
+  border: 1px solid #b7c9bd;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #f5faf7 100%);
+  box-shadow: 0 8px 20px rgba(21, 42, 28, 0.08);
+}
+
+.team-poster {
+  padding: 0.8rem 0.95rem 0.9rem;
+  text-align: center;
+}
+
+.team-poster-flag {
+  width: 100%;
+  max-width: 138px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(24, 52, 33, 0.12);
+}
+
+.team-poster h2 {
+  margin: 0.7rem 0 0.25rem;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-style: italic;
+  text-transform: uppercase;
+  color: #2b4d70;
+}
+
+.team-poster-label,
+.team-poster-opponent,
+.date-poster-label,
+.location-panel-label,
+.match-key-title,
+.squad-card-header {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+}
+
+.team-poster-label {
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  color: #6a7d70;
+}
+
+.team-poster-opponent {
+  margin-top: 0.15rem;
+  font-size: 1rem;
+  color: #38493f;
+}
+
+.date-poster {
+  padding: 0.8rem 0.75rem;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.date-poster-label,
+.location-panel-label,
+.match-key-title {
+  font-size: 0.78rem;
+  color: #4e6256;
+}
+
+.date-poster-weekday,
+.date-poster-month,
+.date-poster-time {
+  margin: 0;
+  font-weight: 800;
+  color: #1d2c23;
+}
+
+.date-poster-weekday {
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.date-poster-day {
+  margin: 0;
+  font-family: "Sora", sans-serif;
+  font-size: 3.6rem;
+  line-height: 1;
+  color: #111d16;
+}
+
+.date-poster-month {
+  font-size: 1.35rem;
+}
+
+.date-poster-time {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  width: 100%;
+  border-top: 1px solid #d7e3da;
+  font-size: 1rem;
+}
+
+.location-panel {
+  margin-top: 0.9rem;
+}
+
+.location-panel-label {
+  text-align: center;
+  margin-bottom: 0.45rem;
+}
+
+.location-panel-card {
+  padding: 0.9rem 1rem;
+  text-align: center;
+  font-size: clamp(1rem, 2vw, 1.45rem);
+  font-weight: 800;
+  color: #2b3d32;
+}
+
+.squads-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 0.9rem;
+}
+
+.squad-card {
+  overflow: hidden;
+}
+
+.squad-card-header {
+  padding: 0.72rem 0.85rem;
+  border-bottom: 1px solid #bfd1c6;
+  background: linear-gradient(180deg, #dce8f2 0%, #c4d9e8 100%);
+  text-align: center;
+  color: #23311d;
+  font-size: 0.9rem;
+}
+
+.squad-card-body {
+  padding: 0.2rem 0;
+}
+
+.squad-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.55rem 0.85rem;
+  border-top: 1px solid #dfe9e2;
+}
+
+.squad-row:first-child {
+  border-top: none;
+}
+
+.squad-name {
+  min-width: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2d23;
+}
+
+.squad-role-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.3rem;
+}
+
+.squad-role-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  padding: 0.22rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.role-captain {
+  background: #202a21;
+}
+
+.role-wicket-keeper {
+  background: #3d5361;
+}
+
+.role-head-coach {
+  background: #86611a;
+}
+
+.role-batting-coach {
+  background: #2d6f4b;
+}
+
+.match-key-card {
+  margin-top: 0.9rem;
+  padding: 0.85rem 1rem 1rem;
+}
+
+.match-key-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.1rem;
+  margin-top: 0.65rem;
+}
+
+.match-key-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 700;
+  color: #2b3c31;
+}
+
+@media (max-width: 860px) {
+  .match-sheet-top,
+  .squads-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .date-poster {
+    order: -1;
+  }
+}
+
+@media (max-width: 680px) {
+  .upcoming-detail-page {
+    padding: 0.8rem;
+  }
+
+  .match-detail-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .match-detail-pill-row {
+    justify-content: flex-start;
+  }
+
+  .match-sheet {
+    padding: 0.8rem;
+  }
+
+  .team-poster-flag {
+    max-width: 118px;
+    height: 80px;
+  }
+
+  .date-poster-day {
+    font-size: 3rem;
+  }
+
+  .squad-row {
+    grid-template-columns: 1fr;
+  }
+
+  .squad-role-group {
+    justify-content: flex-start;
+  }
+}

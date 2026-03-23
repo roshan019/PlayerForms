@@ -1,0 +1,11 @@
+/* Match Completion Page Styles */
+/* Additional styling for the page wrapper if needed */
+
+.match-completion-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.match-completion-content {
+  margin-top: 2rem;
+}

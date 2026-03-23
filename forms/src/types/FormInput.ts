@@ -1,12 +1,13 @@
 export interface FormInput {
   fullname?: string;
   email?: string;
-  PhoneNo?: string;
+  phoneNo?: string;
+  country?: string;
   address?: string;
-  DateOfBirth?: string;
+  dateOfBirth?: string;
   age?: string;
   gender?: string;
-  JerseyNo?: string;
+  jerseyNo?: string;
   height?: string;
   role?: string;
   test?: boolean;

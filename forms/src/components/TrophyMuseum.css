@@ -1,0 +1,183 @@
+.trophy-museum {
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.trophy-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.trophy-header h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+}
+
+.trophy-header p {
+  color: var(--subtle);
+  font-weight: 600;
+}
+
+.trophy-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.trophy-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(8, 28, 16, 0.08);
+  cursor: pointer;
+}
+
+.trophy-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(8, 36, 22, 0.16);
+  border-color: var(--brand);
+}
+
+.trophy-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.trophy-card h3 {
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  flex-grow: 1;
+}
+
+.trophy-years {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.year-pill {
+  background: #f4faf5;
+  color: #274130;
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  border: 1px solid #dce8dd;
+  font-weight: 600;
+}
+
+.view-details-btn {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--brand);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.trophy-card:hover .view-details-btn {
+  background: var(--brand);
+  color: #ffffff;
+}
+
+/* Detailed View Styles */
+.back-btn {
+  background: transparent;
+  border: none;
+  color: var(--subtle);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.back-btn:hover {
+  color: var(--ink);
+}
+
+.trophy-detail-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.trophy-icon-large {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+}
+
+.trophy-detail-header h2 {
+  font-size: 2.2rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.trophy-detail-header p {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.winners-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.winner-row {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.winner-row:last-child {
+  border-bottom: none;
+}
+
+.winner-row:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+.winner-year {
+  font-weight: 800;
+  color: var(--brand);
+  font-size: 1.1rem;
+  width: 80px;
+}
+
+.winner-team {
+  font-size: 1.15rem;
+  color: var(--ink);
+  flex-grow: 1;
+}
+
+.winner-host {
+  color: var(--subtle);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

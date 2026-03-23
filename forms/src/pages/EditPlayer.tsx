@@ -1,5 +1,6 @@
 import type { FormInput } from "../types/FormInput";
 import { PlayerRegistration } from "../components/PlayerRegistration";
+import { CricketTopNav } from "../components/CricketTopNav";
 import "./AddPlayer.css";
 
 interface EditPlayerProps {
@@ -9,16 +10,15 @@ interface EditPlayerProps {
   onCancel: () => void;
 }
 
-export function EditPlayer({ player, index, onSave, onCancel }: EditPlayerProps) {
+export function EditPlayer({ index, onSave }: EditPlayerProps) {
   return (
-    <div className="add-player-page">
-      <PlayerRegistration
-        initialPlayer={player}
-        title="Player Registration Forms"
-        submitLabel="Save"
-        onPlayerRegistered={(updatedPlayer) => onSave(index, updatedPlayer)}
-        onCancel={onCancel}
-      />
-    </div>
+    <>
+      <CricketTopNav />
+      <div className="add-player-page">
+        <PlayerRegistration
+          onPlayerRegistered={(updatedPlayer) => onSave(index, updatedPlayer)}
+        />
+      </div>
+    </>
   );
 }

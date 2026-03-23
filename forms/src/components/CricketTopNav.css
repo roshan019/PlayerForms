@@ -1,0 +1,90 @@
+.cricket-top-shell {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.cricket-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.9rem 1rem;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(100deg, #0c6f36 0%, #0b7d35 52%, #0a6f55 100%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.cricket-top-links {
+  display: flex;
+  gap: 0.2rem;
+  flex-wrap: wrap;
+}
+
+.cricket-top-btn {
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.55rem 0.95rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: #12361d;
+  font-weight: 700;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+}
+
+.cricket-top-btn.active,
+.cricket-top-btn:hover {
+  background: #ffffff;
+  color: #0f2f1a;
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+.cricket-top-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.58);
+  outline-offset: 2px;
+}
+
+.cricket-brand {
+  font-size: 0.88rem;
+  color: #d6ffe0;
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.cricket-subbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  padding: 0.3rem 1rem 0.55rem 1rem;
+  background: linear-gradient(90deg, #03172a 0%, #082041 50%, #03172a 100%);
+  border-radius: 0 0 16px 16px;
+}
+
+.cricket-sub-link {
+  text-decoration: none;
+  color: #dce7ff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.34rem 0.75rem;
+}
+
+.cricket-sub-link:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 640px) {
+  .cricket-topbar {
+    justify-content: center;
+  }
+
+  .cricket-brand {
+    width: 100%;
+    text-align: center;
+  }
+}

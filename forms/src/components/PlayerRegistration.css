@@ -6,7 +6,7 @@
 }
 
 .player-registration-form {
-  width: min(760px, 100%);
+  width: min(950px, 100%);
   background: #f8fbff;
   border: 1px solid #e4edf8;
   border-radius: 16px;
@@ -178,5 +178,145 @@
 
   .player-registration-form form > div:has(.form-group-radio) > label {
     padding-top: 0;
+  }
+}
+
+/* ── Two-column photo + fields layout ─────────────────────── */
+.pr-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.pr-photo-col {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.pr-photo-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #e9eef6;
+  border: 3px dashed #b0c4de;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pr-photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.pr-photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: #8fa8c4;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.pr-upload-btn {
+  display: inline-block;
+  background: #4d84e6;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s;
+  text-align: center;
+}
+
+.pr-upload-btn:hover {
+  background: #2d5ec9;
+}
+
+.pr-remove-btn {
+  background: none;
+  border: 1px solid #ef6d6d;
+  color: #ef6d6d;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.pr-remove-btn:hover {
+  background: #fde8e8;
+}
+
+.pr-fields-col {
+  flex: 1 1 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+/* 2-column fields grid */
+.pr-field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+}
+
+.pr-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pr-field > label {
+  color: #40536d;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.pr-field input[type="text"],
+.pr-field input[type="number"],
+.pr-field input[type="date"] {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #d2deed;
+  border-radius: 8px;
+  padding: 0 0.75rem;
+  font-size: 0.95rem;
+  background: #fff;
+  color: #1f2f46;
+  box-sizing: border-box;
+}
+
+.pr-field input[type="text"]:focus,
+.pr-field input[type="number"]:focus,
+.pr-field input[type="date"]:focus {
+  outline: none;
+  border-color: #7ca6f3;
+  box-shadow: 0 0 0 3px rgba(77,132,230,0.15);
+}
+
+@media (max-width: 640px) {
+  .pr-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .pr-photo-col {
+    flex: none;
+    width: 100%;
+  }
+  .pr-fields-col {
+    width: 100%;
   }
 }

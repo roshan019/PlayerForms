@@ -65,14 +65,14 @@ export function PlayerList({ players, onEdit, onDelete }: PlayerListProps) {
                 <tr key={absoluteIndex}>
                   <td>{player.fullname}</td>
                   <td>{player.email}</td>
-                  <td>{player.PhoneNo}</td>
+                  <td>{player.phoneNo}</td>
                   <td>{player.address || "-"}</td>
-                  <td>{player.DateOfBirth || "-"}</td>
+                  <td>{player.dateOfBirth || "-"}</td>
                   <td>{player.age || "-"}</td>
                   <td>{player.height || "-"}</td>
                   <td>{player.role || "-"}</td>
                   <td>{getFormatDisplay(player)}</td>
-                  <td>{player.JerseyNo || "-"}</td>
+                  <td>{player.jerseyNo || "-"}</td>
                   <td>{player.gender || "-"}</td>
                   <td className="actions-cell">
                     <button
